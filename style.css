@@ -6,63 +6,86 @@ body {
   text-align: center;
 }
 
-/* LOGO */
+/* 🔥 BANNER */
+.casino-banner {
+  width: 100%;
+  overflow: hidden;
+}
+
 .casino-banner img {
   width: 100%;
-  max-width: 320px;
-  margin: 20px auto 10px;
   display: block;
-  filter: drop-shadow(0 0 20px gold);
+  animation: glowPulse 2.5s infinite alternate;
 }
 
-.subtitle {
-  color: gold;
-  margin-bottom: 20px;
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px gold, 0 0 40px #ffb700;
+  }
+  100% {
+    box-shadow: 0 0 50px gold, 0 0 90px #ffcc00;
+  }
 }
 
-/* CONTACT */
+h1 {
+  margin: 15px 0;
+}
+
+/* 📞 CONTACT */
 .contact {
-  padding: 10px 15px;
+  padding: 10px;
 }
 
 .contact-btn {
   display: block;
-  background: green;
+  margin: 10px auto;
+  width: 90%;
+  padding: 14px;
+  background: #0b8f00;
   color: #fff;
+  border-radius: 12px;
   text-decoration: none;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
   font-weight: bold;
 }
 
-/* GAMES */
+/* 🎮 GAMES */
 .games {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 15px;
+  gap: 16px;
+  padding: 20px;
 }
 
 .game {
-  background: #111;
-  border: 2px solid gold;
-  border-radius: 15px;
-  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
+  width: 100%;
+  height: 110px;
+  border: 2px solid gold;
+  border-radius: 18px;
+  background: #111;
   color: gold;
   font-weight: bold;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .download {
-  display: block;
-  background: #222;
-  color: gold;
+  margin-top: 6px;
+  padding: 6px 22px;
+  background: #333;
+  color: #ccc;
+  border-radius: 20px;
   text-decoration: none;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid gold;
+  font-size: 13px;
+}
+
+.download:hover {
+  background: gold;
+  color: black;
 }
