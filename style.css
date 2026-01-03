@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  padding: 15px;
+}
+
+.logo {
+  text-align: center;
+  color: gold;
+  font-size: 38px;
+  margin-bottom: 5px;
+}
+
+.line {
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;   /* BESARKAN LINE 74 */
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.links .btn {
+  display: block;
+  background: #0a8f08;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.auth {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.filter {
+  margin: 10px 0;
+}
+
+.filter button {
+  padding: 6px 12px;
+  margin-right: 5px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 18px 5px;
+  text-align: center;
+  font-weight: bold;
+  background: #111;
+}
+/* ===== GAME GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* ===== GAME CARD ===== */
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== KOTAK GAMBAR ===== */
+.game-box {
+  width: 100%;
+  height: 120px;
+  border: 2px solid gold;
+  border-radius: 12px;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-box img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* ===== BUTTON DOWNLOAD ===== */
+.btn-download {
+  margin-top: 6px;
+  padding: 6px 18px;
+  background: #2c2c2c;
+  color: #aaa;
+  border-radius: 20px;
+  font-size: 13px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-download:hover {
+  background: gold;
+  color: black;
+}
