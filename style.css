@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* LOGO */
+.casino-banner img {
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto 10px;
+  display: block;
+  filter: drop-shadow(0 0 20px gold);
+}
+
+.subtitle {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+/* CONTACT */
+.contact {
+  padding: 10px 15px;
+}
+
+.contact-btn {
+  display: block;
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* GAMES */
+.games {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 15px;
+}
+
+.game {
+  background: #111;
+  border: 2px solid gold;
+  border-radius: 15px;
+  padding: 15px 10px;
+}
+
+.card {
+  color: gold;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.download {
+  display: block;
+  background: #222;
+  color: gold;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid gold;
+}
