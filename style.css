@@ -121,23 +121,35 @@ body{
   align-items:center;
 }
 
-/* LOGO HERO */
+/* ===============================
+   HERO HEIGHT LIMIT (FINAL FIX)
+================================ */
+.hero{
+  width:100%;
+  padding:20px 16px 12px;
+  text-align:center;
+  overflow:hidden;
+}
+
+/* batasi tinggi area hero */
+.hero-inner{
+  max-height:200px;      /* INI BATAS TINGGI (SESUAI GARIS) */
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* logo hero */
 .hero img{
-  max-width:100%;               /* KUNCI UTAMA */
+  max-width:100%;
+  max-height:180px;      /* logo tidak boleh lewat batas */
+  width:auto;
   height:auto;
+  object-fit:contain;
+  margin:0 auto;
   display:block;
-  margin:0 auto 16px;
-}
-
-/* Teks hero */
-.hero-text h1{
-  font-size:22px;
-  line-height:1.3;
-}
-
-.hero-text .subtitle{
-  font-size:14px;
-  opacity:.85;
 }
 
 /* ===============================
