@@ -11,74 +11,47 @@ body{
 }
 
 /* =====================
-   HEADER / LOGO STICKY
+   HEADER / STICKY
 ===================== */
 .hero{
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background: linear-gradient(
-    to bottom,
-    rgba(11,19,32,0.98),
-    rgba(11,19,32,0.96)
-  );
-  padding: 8px 12px;   /* ⬅ DIPERKECIL */
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(11,19,32,.98);
+  padding:6px 12px;
 }
 
 .hero-inner{
-  background: rgba(11,19,32,0.97);
-  border-radius: 16px;
-  padding: 10px 14px 12px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.55);
-  isolation: isolate;
+  border-radius:14px;
+  padding:8px 12px 10px;
+  box-shadow:0 10px 28px rgba(0,0,0,.55);
+  text-align:center;
 }
 
+/* LOGO (SATU RULE SAJA) */
 .hero-inner img{
-  width: 100%;
-  max-width: 240px;
-  height: auto;
-  display: block;
-  margin: 0 auto 14px;
-  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.6));
+  max-width:220px;
+  width:100%;
+  height:auto;
+  margin:0 auto 8px;
+  display:block;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.6));
 }
 
-/* LOGO BESAR & RESPONSIVE */
-.hero img{
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  margin: 0 auto 12px;
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-/* SUBTITLE */
+/* TEXT */
 .hero-text{
-  background: rgba(11,19,32,0.96);
-  padding: 8px 12px;     /* ⬅ LEBIH RINGKAS */
-  border-radius: 12px;
-  text-align: center;
-  margin: 0 auto;
+  padding:6px 10px;
 }
 
 .hero h1{
-  font-size: 18px;   /* ⬅ TURUN DARI 22px */
-  margin: 0 0 4px;
-  line-height: 1.25;
+  font-size:16px;
+  line-height:1.25;
+  margin-bottom:4px;
 }
 
 .hero .subtitle{
-  font-size: 12px;
-  text-align: center;
-  width: 100%;
-}
-
-.hero.shrink img{
-  max-width: 200px;
-}
-
-.hero.shrink h1{
-  font-size: 16px;
+  font-size:12px;
+  opacity:.9;
 }
 
 /* =====================
@@ -87,41 +60,41 @@ body{
 .container{
   max-width:1200px;
   margin:0 auto;
-  padding:24px 16px;
+  padding:20px 16px;
 }
 
-/* GRID GAME */
+/* GRID */
 .game-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  gap:14px;
 }
 
 /* CARD */
 .game-card{
   background:#111a2c;
-  border-radius:16px;
-  padding:14px;
+  border-radius:14px;
+  padding:12px;
   display:flex;
   align-items:center;
   gap:12px;
-  transition:transform .15s ease, box-shadow .15s ease;
+  transition:.15s ease;
 }
 
 .game-card:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 24px rgba(0,0,0,.35);
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
 }
 
 .game-card img{
-  width:64px;
-  height:64px;
-  border-radius:14px;
+  width:60px;
+  height:60px;
+  border-radius:12px;
   object-fit:cover;
 }
 
 .game-info h3{
-  font-size:14px;
+  font-size:13px;
   margin-bottom:6px;
 }
 
@@ -137,21 +110,23 @@ body{
   text-decoration:none;
 }
 
+.btn-play:hover{
+  filter:brightness(.9);
+}
+
 /* =====================
-   FOOTER (TRANSPARAN)
+   FOOTER
 ===================== */
 .footer{
   text-align:center;
-  padding:36px 16px;
+  padding:28px 16px;
   border-top:1px solid rgba(255,255,255,.08);
-  background:transparent; /* ✅ NO BACKGROUND */
 }
 
 .footer img{
-  max-width:460px;
+  max-width:420px;
   width:100%;
-  margin-bottom:12px;
-  background:transparent;
+  margin-bottom:10px;
 }
 
 /* =====================
@@ -162,7 +137,7 @@ body{
     grid-template-columns:repeat(4,1fr);
   }
 
-  .hero img{
-    max-width:360px; /* 🔥 LOGO MAKIN GAGAH DI PC */
+  .hero-inner img{
+    max-width:300px;
   }
 }
