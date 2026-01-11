@@ -133,7 +133,7 @@ body{
 
 /* batasi tinggi area hero */
 .hero-inner{
-  max-height:140px;      /* INI BATAS TINGGI (SESUAI GARIS) */
+  max-height:180px;      /* INI BATAS TINGGI (SESUAI GARIS) */
   overflow:hidden;
   display:flex;
   flex-direction:column;
@@ -144,7 +144,7 @@ body{
 /* logo hero */
 .hero img{
   max-width:100%;
-  max-height:140px;      /* logo tidak boleh lewat batas */
+  max-height:180px;      /* logo tidak boleh lewat batas */
   width:auto;
   height:auto;
   object-fit:contain;
@@ -153,16 +153,16 @@ body{
 }
 
 /* ===============================
-   CUSTOMER SERVICE BUTTONS
+   CUSTOMER SERVICE BUTTONS (SMALLER)
 ================================ */
 .cs-section{
   width:100%;
-  max-width:520px;
-  margin:40px auto;
-  padding:0 16px;
+  max-width:480px;          /* sedikit lebih kecil */
+  margin:30px auto;
+  padding:0 14px;
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:10px;                 /* jarak antar tombol diperkecil */
 }
 
 .cs-btn{
@@ -170,17 +170,17 @@ body{
   align-items:center;
   justify-content:center;
 
-  background:#138a08;           /* hijau WhatsApp */
+  background:#138a08;
   color:#fff;
   font-weight:700;
-  font-size:18px;
-  letter-spacing:1px;
+  font-size:14px;           /* dari ~18px → 14px */
+  letter-spacing:.5px;
+
+  padding:12px 10px;        /* dari ~18px → 12px */
+  border-radius:16px;       /* dari 22px → 16px */
+
   text-decoration:none;
-
-  padding:18px 12px;
-  border-radius:22px;
-
-  box-shadow:0 6px 18px rgba(0,0,0,.6);
+  box-shadow:0 4px 12px rgba(0,0,0,.5);
   transition:.2s ease;
 }
 
@@ -188,16 +188,15 @@ body{
   background:#17a20a;
 }
 
-.cs-btn::before{
-  content:"💬";
-  margin-right:10px;
-  font-size:20px;
+/* Judul */
+.cs-title{
+  font-size:16px;           /* dari ~20px → 16px */
 }
 
 
-/* Judul */
-.cs-title{
-  background:#138a08;
+.cs-btn::before{
+  content:"💬";
+  margin-right:10px;
   font-size:20px;
 }
 
