@@ -1,188 +1,126 @@
-/* =====================
-   RESET
-===================== */
-*{
+/* ===============================
+   RESET & BASE
+================================ */
+*,
+*::before,
+*::after{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
 body{
+  font-family: Arial, Helvetica, sans-serif;
   background:#000;
   color:#fff;
-  font-family:Arial, sans-serif;
 }
 
-/* =====================
-   HEADER
-===================== */
-.hero{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(0,0,0,.95);
-  padding:8px 12px;
-}
-
-.hero-inner{
-  text-align:center;
-  padding:8px 10px 10px;
-}
-
-.hero-inner img{
-  max-width:220px;
-  width:100%;
-  height:auto;
-  margin:0 auto 4px;
-  display:block;
-}
-
-.hero h1{
-  font-size:16px;
-  margin-bottom:4px;
-}
-
-.hero .subtitle{
-  font-size:12px;
-  opacity:.9;
-}
-
-/* =====================
-   CONTAINER
-===================== */
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  padding:16px 12px;
-}
-
-/* =====================
-   GRID GAME (2 KOLOM FIX)
-===================== */
+/* ===============================
+   GRID 2 KOLOM (FIX)
+================================ */
 .game-grid{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+  grid-template-columns:repeat(2, 1fr);
   gap:18px;
+  padding:18px;
 }
 
-/* =====================
-   GAME CARD (WRAPPER)
-===================== */
+/* ===============================
+   CARD
+================================ */
 .game-card{
-  width:100%;
+  background:transparent;
   display:flex;
   flex-direction:column;
   align-items:center;
-  text-align:center;
-  background:transparent;
 }
 
-/* =====================
-   FRAME LOGO
-===================== */
-.game-card img{
+/* ===============================
+   LOGO FRAME (SAMA SEMUA)
+================================ */
+.game-logo{
   width:100%;
+  height:82px;                     /* tinggi FIX */
+  max-width:240px;                 /* lebar visual seperti MEGA888 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:linear-gradient(145deg,#111,#000);
+  border:2px solid #ffd200;
+  border-radius:28px;
+  padding:10px 14px;
+
+  box-shadow:
+    inset 0 0 18px rgba(255,210,0,.15),
+    0 8px 20px rgba(0,0,0,.7);
+}
+
+/* logo image */
+.game-logo img{
   max-width:100%;
-  height:auto;
+  max-height:100%;
   object-fit:contain;
-
-  padding:14px 14px;
-  margin-bottom:8px;
-
-  background:linear-gradient(to bottom,#121212,#0a0a0a);
-  border:3px solid #ffd400;
-  border-radius:26px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
-    0 0 0 1px rgba(255,212,0,.25),
-    0 10px 26px rgba(0,0,0,.8);
-
-  transition:transform .25s ease, box-shadow .25s ease;
+  display:block;
 }
 
-.game-card:hover img{
-  transform:translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.1),
-    0 0 12px rgba(255,212,0,.35),
-    0 14px 32px rgba(0,0,0,.85);
+/* fallback jika img langsung tanpa wrapper */
+.game-card > img{
+  width:100%;
+  max-width:240px;
+  height:82px;
+  object-fit:contain;
+  margin:0 auto;
+
+  background:linear-gradient(145deg,#111,#000);
+  border:2px solid #ffd200;
+  border-radius:28px;
+  padding:10px 14px;
 }
 
-/* =====================
+/* ===============================
    NAMA GAME (DI LUAR FRAME)
-===================== */
-.game-info h3{
-  color:#ffd400;
-  font-size:15px;
+================================ */
+.game-name,
+.game-card h3{
+  margin-top:10px;
+  font-size:14px;
   font-weight:700;
   letter-spacing:1px;
-  margin:8px 0 10px;
-  text-shadow:0 2px 6px rgba(0,0,0,.9);
+  color:#ffd200;
+  text-align:center;
+  text-transform:uppercase;
 }
 
-/* =====================
+/* ===============================
    BUTTON DOWNLOAD
-===================== */
-.btn-play{
+================================ */
+.btn-play,
+.download-btn,
+.game-card a{
+  margin-top:8px;
+  padding:8px 22px;
   background:#555;
   color:#fff;
-  padding:9px 30px;
-  border-radius:30px;
-  font-size:12px;
+  font-size:13px;
   font-weight:600;
+  border-radius:22px;
   text-decoration:none;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.15),
-    0 6px 16px rgba(0,0,0,.6);
-
   transition:.2s ease;
 }
 
-.btn-play:hover{
+.btn-play:hover,
+.download-btn:hover,
+.game-card a:hover{
   background:#666;
-  transform:translateY(-1px);
 }
 
-.btn-play:active{
-  transform:translateY(0);
-  box-shadow:inset 0 2px 6px rgba(0,0,0,.6);
-}
-
-/* =====================
-   FOOTER
-===================== */
-.footer{
-  text-align:center;
-  padding:26px 14px;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-.footer img{
-  max-width:420px;
-  width:100%;
-  margin-bottom:10px;
-}
-
-/* =====================
-   DESKTOP
-===================== */
-@media (min-width:768px){
-  .game-grid{
-    grid-template-columns:repeat(4, 1fr);
-  }
-
-  .game-card img{
-    padding:18px 22px;
-  }
-
-  .game-info h3{
-    font-size:16px;
-  }
-
-  .btn-play{
-    font-size:13px;
-    padding:10px 34px;
+/* ===============================
+   RESPONSIVE (AMAN)
+================================ */
+@media(max-width:360px){
+  .game-logo{
+    height:72px;
+    max-width:210px;
   }
 }
