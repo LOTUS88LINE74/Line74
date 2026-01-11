@@ -285,117 +285,31 @@ body{
 }
 
 /* ===============================
-   STICKY FOOTER BASE
+   FIX FOOTER CENTER MOBILE
 ================================ */
-html, body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-/* pastikan konten mendorong footer */
-main {
-  flex: 1;
-}
-
-/* ===============================
-   FOOTER VIP GOLD / CASINO
-================================ */
-.footer {
-  background: linear-gradient(180deg, #020617, #000);
-  color: #e5e7eb;
-  padding: 50px 20px;
-
-  display: flex;
-  justify-content: center;
-
-  border-top: 2px solid #facc15;
-  box-shadow:
-    inset 0 12px 40px rgba(250,204,21,0.18),
-    0 -6px 20px rgba(0,0,0,0.8);
-
-  animation: goldGlow 4s ease-in-out infinite;
-}
-
-.footer-container {
-  max-width: 1100px;
-  width: 100%;
+.footer,
+.footer * {
   text-align: center;
 }
 
-/* ===============================
-   FOOTER LOGO
-================================ */
-.footer-logo img {
-  max-width: 160px;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 0 10px rgba(250,204,21,0.6));
-}
-
-/* ===============================
-   FOOTER MENU
-================================ */
-.footer-menu {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
+.footer-social {
   display: flex;
   justify-content: center;
-  gap: 26px;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
 }
 
-.footer-menu a {
-  color: #e5e7eb;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
-.footer-menu a:hover {
-  color: #facc15;
-  text-shadow: 0 0 8px rgba(250,204,21,0.6);
-}
-
-/* ===============================
-   FOOTER SOCIAL ICON
-================================ */
 .footer-social a {
-  font-size: 20px;
-  margin: 0 10px;
-  color: #e5e7eb;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer-social a:hover {
-  color: #facc15;
-  text-shadow: 0 0 10px rgba(250,204,21,0.8);
-}
-
-/* ===============================
-   COPYRIGHT
-================================ */
-.footer p {
-  margin-top: 24px;
-  font-size: 13px;
-  color: #94a3b8;
-  letter-spacing: 0.6px;
-}
-
-/* ===============================
-   GOLD GLOW ANIMATION
-================================ */
-@keyframes goldGlow {
-  0%, 100% {
-    box-shadow: inset 0 0 30px rgba(250,204,21,0.18);
-  }
-  50% {
-    box-shadow: inset 0 0 55px rgba(250,204,21,0.35);
-  }
+.footer p,
+.footer .copyright {
+  width: 100%;
+  text-align: center;
 }
 
 /* ===============================
