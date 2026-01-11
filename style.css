@@ -1,7 +1,9 @@
 /* ===============================
-   RESET
+   RESET & BASE
 ================================ */
-*{
+*,
+*::before,
+*::after{
   box-sizing:border-box;
   margin:0;
   padding:0;
@@ -13,58 +15,28 @@ body{
   color:#fff;
 }
 
+/* ===============================
+   BASIC INSTALL BUTTON (fallback)
+================================ */
 .install-btn{
-.install-btn {
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  padding: 10px 18px;
-  background: #ffcc00;
-  color: #000;
-  font-weight: bold;
-  border-radius: 24px;
-  border: none;
-  z-index: 9999;
-  animation: fadeInUp 0.5s ease;
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  padding:10px 18px;
+  background:#ffcc00;
+  color:#000;
+  font-weight:700;
+  border-radius:24px;
+  border:none;
+  z-index:9999;
 }
-
-.ios-hint {
-  position: fixed;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #000;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 18px;
-  font-size: 14px;
-  z-index: 9999;
-  animation: fadeInUp 0.5s ease;
-}
-
-.ios-hint.hide {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 10px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
 
 /* ===============================
-   GRID 2 KOLOM (WAJIB ADA)
+   GRID 2 KOLOM (WAJIB)
 ================================ */
 .game-grid{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
   padding:18px;
 }
@@ -79,7 +51,7 @@ body{
 }
 
 /* ===============================
-   LOGO (FRAME SAMA UKURAN)
+   LOGO GAME (UKURAN SERAGAM)
 ================================ */
 .game-card > img,
 .game-logo{
@@ -104,7 +76,6 @@ body{
     0 8px 20px rgba(0,0,0,.7);
 }
 
-/* jika pakai wrapper */
 .game-logo img{
   max-width:100%;
   max-height:100%;
@@ -112,7 +83,7 @@ body{
 }
 
 /* ===============================
-   INFO (NAMA + BUTTON)
+   INFO GAME
 ================================ */
 .game-info{
   display:flex;
@@ -121,7 +92,6 @@ body{
   margin-top:10px;
 }
 
-/* NAMA GAME */
 .game-info h3{
   margin-bottom:10px;
   font-size:14px;
@@ -133,7 +103,9 @@ body{
   text-shadow:0 1px 6px rgba(255,210,0,.35);
 }
 
-/* BUTTON */
+/* ===============================
+   BUTTON DOWNLOAD
+================================ */
 .btn-play{
   padding:8px 22px;
   background:#555;
@@ -150,25 +122,7 @@ body{
 }
 
 /* ===============================
-   HERO FIX (LOGO ATAS)
-================================ */
-.hero{
-  width:100%;
-  overflow:hidden;              /* PENTING: cegah geser layout */
-  padding:30px 16px 10px;
-  text-align:center;
-}
-
-.hero-inner{
-  max-width:100%;
-  margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-/* ===============================
-   HERO HEIGHT LIMIT (FINAL FIX)
+   HERO
 ================================ */
 .hero{
   width:100%;
@@ -177,38 +131,32 @@ body{
   overflow:hidden;
 }
 
-/* batasi tinggi area hero */
 .hero-inner{
-  max-height:240px;      /* INI BATAS TINGGI (SESUAI GARIS) */
-  overflow:hidden;
+  max-height:240px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  overflow:hidden;
 }
 
-/* logo hero */
 .hero img{
   max-width:100%;
-  max-height:240px;      /* logo tidak boleh lewat batas */
-  width:auto;
-  height:auto;
+  max-height:240px;
   object-fit:contain;
-  margin:0 auto;
-  display:block;
 }
 
 /* ===============================
-   CUSTOMER SERVICE BUTTONS (SMALLER)
+   CUSTOMER SERVICE BUTTON
 ================================ */
 .cs-section{
   width:100%;
-  max-width:480px;          /* sedikit lebih kecil */
+  max-width:480px;
   margin:30px auto;
   padding:0 14px;
   display:flex;
   flex-direction:column;
-  gap:10px;                 /* jarak antar tombol diperkecil */
+  gap:10px;
 }
 
 .cs-btn{
@@ -219,11 +167,9 @@ body{
   background:#138a08;
   color:#fff;
   font-weight:700;
-  font-size:14px;           /* dari ~18px → 14px */
-  letter-spacing:.5px;
-
-  padding:12px 10px;        /* dari ~18px → 12px */
-  border-radius:16px;       /* dari 22px → 16px */
+  font-size:14px;
+  padding:12px 10px;
+  border-radius:16px;
 
   text-decoration:none;
   box-shadow:0 4px 12px rgba(0,0,0,.5);
@@ -234,16 +180,115 @@ body{
   background:#17a20a;
 }
 
-/* Judul */
-.cs-title{
-  font-size:16px;           /* dari ~20px → 16px */
-}
-
-
 .cs-btn::before{
   content:"💬";
   margin-right:10px;
   font-size:20px;
+}
+
+.cs-title{
+  font-size:16px;
+}
+
+/* ===============================
+   PWA MODAL – FINAL ULTRA
+================================ */
+.pwa-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(4px);
+  z-index:9999;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
+.pwa-sheet{
+  width:100%;
+  max-width:420px;
+  background:linear-gradient(180deg,#0b1320,#000);
+  border-radius:24px 24px 0 0;
+  padding:22px 20px 26px;
+  text-align:center;
+  position:relative;
+  animation:slideUp .35s ease;
+}
+
+.pwa-logo{
+  width:120px;
+  margin:0 auto 6px;
+}
+
+.pwa-rating{
+  font-size:14px;
+  color:#ffd200;
+  margin-bottom:8px;
+}
+
+.pwa-rating span{
+  color:#fff;
+  margin-left:6px;
+}
+
+.pwa-badge{
+  margin-left:8px;
+  background:#1eff4e;
+  color:#000;
+  padding:2px 8px;
+  border-radius:12px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.pwa-sheet h3{
+  color:#ffd200;
+  margin:6px 0 4px;
+}
+
+.pwa-desc{
+  font-size:14px;
+  color:#ddd;
+  margin-bottom:14px;
+}
+
+.pwa-install-btn{
+  width:100%;
+  padding:12px;
+  background:linear-gradient(135deg,#ffd200,#ffb800);
+  color:#000;
+  border:none;
+  border-radius:20px;
+  font-weight:700;
+}
+
+.pwa-install-btn:active{
+  transform:scale(.97);
+}
+
+.pwa-ios-hint{
+  margin-top:14px;
+  font-size:13px;
+  color:#ccc;
+}
+
+.pwa-close{
+  position:absolute;
+  right:14px;
+  top:10px;
+  background:none;
+  border:none;
+  color:#aaa;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes slideUp{
+  from{transform:translateY(100%)}
+  to{transform:translateY(0)}
 }
 
 /* ===============================
