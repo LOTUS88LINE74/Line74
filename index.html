@@ -31,6 +31,10 @@
          alt="Logo Resmi line74"
          loading="eager">
 
+    <button id="installApp" class="install-btn" hidden>
+  Install App
+    </button>
+
     <div class="hero-text">
       <h1>Sila pilih aplikasi game yang anda minati untuk dimuat turun.</h1>
       <div class="subtitle">Sekiranya menghadapi sebarang masalah atau perlukan panduan,sila hubungi Customer Service melalui WhatsApp</p>
@@ -168,5 +172,15 @@
   <p>© 2026 Portalhoki77. All Rights Reserved.</p>
 </footer>
 
+ <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/site/service-worker.js")
+      .then(reg => console.log("SW registered", reg.scope))
+      .catch(err => console.error("SW failed", err));
+  });
+}
+</script>
+ 
 </body>
 </html>
