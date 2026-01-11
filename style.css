@@ -133,7 +133,7 @@ body{
 
 /* batasi tinggi area hero */
 .hero-inner{
-  max-height:180px;      /* INI BATAS TINGGI (SESUAI GARIS) */
+  max-height:200px;      /* INI BATAS TINGGI (SESUAI GARIS) */
   overflow:hidden;
   display:flex;
   flex-direction:column;
