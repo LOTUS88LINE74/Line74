@@ -23,7 +23,7 @@
 
 /* HILANGKAN GAMBAR LOGO */
 .game-card img{
-  display:none;
+  display:block;
 }
 
 /* =====================
