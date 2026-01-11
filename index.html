@@ -172,14 +172,70 @@
   <p>© 2026 Portalhoki77. All Rights Reserved.</p>
 </footer>
 
- <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/site/service-worker.js")
-      .then(reg => console.log("SW registered", reg.scope))
-      .catch(err => console.error("SW failed", err));
+<!-- PWA Install Button -->
+<button id="installApp" class="install-btn" hidden>
+  Install App
+</button>
+
+<!-- iOS Install Hint -->
+<div id="iosHint" class="ios-hint" hidden>
+  Tap <b>Share</b> lalu pilih <b>Add to Home Screen</b>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  let deferredPrompt;
+  const installBtn = document.getElementById("installApp");
+  const iosHint = document.getElementById("iosHint");
+
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+
+  // Jika sudah terinstall → hapus semua
+  if (isStandalone) {
+    installBtn?.remove();
+    iosHint?.remove();
+    return;
+  }
+
+  // iOS (tidak ada beforeinstallprompt)
+  if (isIOS) {
+    iosHint.hidden = false;
+    setTimeout(() => iosHint.classList.add("hide"), 8000);
+    return;
+  }
+
+  // Android / Chrome
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.hidden = false;
+
+    // Auto hide 5 detik
+    setTimeout(() => {
+      if (installBtn) installBtn.hidden = true;
+    }, 5000);
   });
-}
+
+  installBtn.addEventListener("click", async () => {
+    installBtn.hidden = true;
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const choice = await deferredPrompt.userChoice;
+
+    if (choice.outcome === "accepted") {
+      installBtn.remove();
+    }
+    deferredPrompt = null;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    installBtn.remove();
+  });
+
+});
 </script>
  
 </body>
