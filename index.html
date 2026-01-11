@@ -172,60 +172,6 @@
   <p>© 2026 Portalhoki77. All Rights Reserved.</p>
 </footer>
 
-  /* ===== Language ===== */
-  const lang = navigator.language.startsWith("en") ? "en" : "id";
-  const TEXT = {
-    id: {
-      title: "Install Portalhoki77",
-      desc: "Pasang aplikasi untuk akses lebih cepat & stabil",
-      install: "Install Sekarang",
-      ios: "Tap Share lalu pilih Add to Home Screen"
-    },
-    en: {
-      title: "Install Portalhoki77 App",
-      desc: "Install the app for faster & smoother access",
-      install: "Install App",
-      ios: "Tap Share then Add to Home Screen"
-    }
-  };
-
-  document.querySelectorAll("[data-id]").forEach(el => {
-    el.innerHTML = TEXT[lang][el.dataset.id];
-  });
-
-  const modal = document.getElementById("pwaModal");
-  const installBtn = document.getElementById("pwaInstallBtn");
-  const iosHint = document.getElementById("pwaIosHint");
-  const closeBtn = document.getElementById("pwaClose");
-
-  let deferredPrompt;
-  let shown = false;
-
-  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const isStandalone =
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.navigator.standalone;
-
-  if (isStandalone || localStorage.getItem("pwaDismissed")) return;
-
-  /* ===== Show after scroll ===== */
-  window.addEventListener("scroll", () => {
-    if (shown || window.scrollY < 300) return;
-    shown = true;
-
-    modal.hidden = false;
-    if (isIOS) iosHint.hidden = false;
-
-    // GA event
-    gtag?.("event", "pwa_modal_show", {event_category:"PWA"});
-  });
-
-  closeBtn.onclick = () => {
-    modal.hidden = true;
-    localStorage.setItem("pwaDismissed","1");
-    gtag?.("event", "pwa_modal_close", {event_category:"PWA"});
-  };
-
   /* ===== Android Install ===== */
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
