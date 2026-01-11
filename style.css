@@ -283,6 +283,59 @@ body{
   cursor:pointer;
 }
 
+.footer {
+  background: #020617;
+  color: #cbd5f5;
+  padding: 50px 20px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-logo img {
+  max-width: 160px;
+  margin-bottom: 20px;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-menu a {
+  color: #cbd5f5;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-menu a:hover {
+  color: #38bdf8;
+}
+
+.footer-social a {
+  font-size: 20px;
+  margin: 0 10px;
+  color: #cbd5f5;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #38bdf8;
+}
+
+.footer p {
+  margin-top: 25px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
 /* ===============================
    ANIMATION
 ================================ */
