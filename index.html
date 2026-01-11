@@ -172,37 +172,61 @@
   <p>© 2026 Portalhoki77. All Rights Reserved.</p>
 </footer>
 
-<!-- PWA Install Button -->
-<button id="installApp" class="install-btn" hidden>
-  Install App
-</button>
+<!-- PWA Install Modal -->
+<div id="pwaModal" class="pwa-modal" hidden>
+  <div class="pwa-sheet">
+    <button class="pwa-close" id="pwaClose">✕</button>
 
-<!-- iOS Install Hint -->
-<div id="iosHint" class="ios-hint" hidden>
-  Tap <b>Share</b> lalu pilih <b>Add to Home Screen</b>
+    <img src="/site/img/portalhoki77-clean-transparent.webp"
+         alt="Portalhoki77 App"
+         class="pwa-logo">
+
+    <h3>Install Portalhoki77</h3>
+    <p class="pwa-desc">
+      Pasang aplikasi untuk akses lebih cepat & stabil
+    </p>
+
+    <button id="pwaInstallBtn" class="pwa-install-btn" hidden>
+      Install Sekarang
+    </button>
+
+    <div id="pwaIosHint" class="pwa-ios-hint" hidden>
+      <p>Untuk iPhone:</p>
+      <p>Tap <b>Share</b> lalu pilih <b>Add to Home Screen</b></p>
+    </div>
+  </div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  const modal = document.getElementById("pwaModal");
+  const installBtn = document.getElementById("pwaInstallBtn");
+  const iosHint = document.getElementById("pwaIosHint");
+  const closeBtn = document.getElementById("pwaClose");
+
   let deferredPrompt;
-  const installBtn = document.getElementById("installApp");
-  const iosHint = document.getElementById("iosHint");
 
   const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone;
+  const isStandalone =
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone;
 
-  // Jika sudah terinstall → hapus semua
-  if (isStandalone) {
-    installBtn?.remove();
-    iosHint?.remove();
-    return;
-  }
+  // Jangan tampilkan jika sudah install atau sudah pernah ditutup
+  if (isStandalone || localStorage.getItem("pwaDismissed")) return;
 
-  // iOS (tidak ada beforeinstallprompt)
+  const openModal = () => modal.hidden = false;
+  const closeModal = () => {
+    modal.hidden = true;
+    localStorage.setItem("pwaDismissed", "1");
+  };
+
+  closeBtn.onclick = closeModal;
+
+  // iOS (tanpa beforeinstallprompt)
   if (isIOS) {
+    openModal();
     iosHint.hidden = false;
-    setTimeout(() => iosHint.classList.add("hide"), 8000);
     return;
   }
 
@@ -210,29 +234,26 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
     deferredPrompt = e;
+    openModal();
     installBtn.hidden = false;
-
-    // Auto hide 5 detik
-    setTimeout(() => {
-      if (installBtn) installBtn.hidden = true;
-    }, 5000);
   });
 
-  installBtn.addEventListener("click", async () => {
-    installBtn.hidden = true;
+  installBtn.onclick = async () => {
+    closeModal();
     if (!deferredPrompt) return;
 
     deferredPrompt.prompt();
-    const choice = await deferredPrompt.userChoice;
+    const result = await deferredPrompt.userChoice;
 
-    if (choice.outcome === "accepted") {
-      installBtn.remove();
+    if (result.outcome === "accepted") {
+      modal.remove();
     }
     deferredPrompt = null;
-  });
+  };
 
   window.addEventListener("appinstalled", () => {
-    installBtn.remove();
+    modal.remove();
+    localStorage.removeItem("pwaDismissed");
   });
 
 });
