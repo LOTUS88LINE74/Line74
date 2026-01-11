@@ -1,4 +1,62 @@
 /* =====================
+   RESET
+===================== */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  font-family:Arial, sans-serif;
+}
+
+/* =====================
+   HEADER
+===================== */
+.hero{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(0,0,0,.95);
+  padding:8px 12px;
+}
+
+.hero-inner{
+  text-align:center;
+  padding:10px 12px 12px;
+}
+
+.hero-inner img{
+  max-width:220px;
+  width:100%;
+  height:auto;
+  margin:0 auto 6px;
+  display:block;
+}
+
+.hero h1{
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.hero .subtitle{
+  font-size:12px;
+  opacity:.9;
+}
+
+/* =====================
+   CONTAINER
+===================== */
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px 16px;
+}
+
+/* =====================
    GRID GAME
 ===================== */
 .game-grid{
@@ -8,17 +66,43 @@
 }
 
 /* =====================
-   CARD
+   GAME CARD
 ===================== */
 .game-card{
   background:#0b0b0b;
   border:3px solid #ffd400;
   border-radius:26px;
-  padding:18px 14px 20px;
+  padding:18px 14px 22px;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
+
+  box-shadow:
+    0 0 0 1px rgba(255,212,0,.25),
+    0 10px 26px rgba(0,0,0,.7);
+
+  transition:transform .25s ease, box-shadow .25s ease;
+  animation:softGlow 4s ease-in-out infinite;
+}
+
+/* Glow pelan */
+@keyframes softGlow{
+  0%,100%{
+    box-shadow:
+      0 0 0 1px rgba(255,212,0,.25),
+      0 10px 26px rgba(0,0,0,.7);
+  }
+  50%{
+    box-shadow:
+      0 0 12px rgba(255,212,0,.35),
+      0 14px 32px rgba(0,0,0,.8);
+  }
+}
+
+/* Hover */
+.game-card:hover{
+  transform:translateY(-4px);
 }
 
 /* =====================
@@ -29,41 +113,76 @@
   height:56px;
   object-fit:contain;
   margin-bottom:10px;
+  padding:8px;
+  background:rgba(255,212,0,.08);
+  border-radius:50%;
   filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
 }
 
 /* =====================
-   TEXT
+   TEXT GAME
 ===================== */
 .game-info h3{
   color:#ffd400;
   font-size:17px;
   font-weight:700;
   letter-spacing:1px;
-  margin-bottom:14px;
+  margin-bottom:16px;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
 }
 
 /* =====================
-   BUTTON
+   BUTTON DOWNLOAD
 ===================== */
 .btn-play{
-  background:#555;
+  background:linear-gradient(to bottom,#5f5f5f,#444);
   color:#fff;
   padding:10px 32px;
   border-radius:30px;
   font-size:13px;
   font-weight:600;
   text-decoration:none;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.15),
+    0 6px 16px rgba(0,0,0,.55);
+
+  transition:all .2s ease;
 }
 
 .btn-play:hover{
-  background:#666;
+  background:linear-gradient(to bottom,#6a6a6a,#4f4f4f);
+  transform:translateY(-1px);
+}
+
+.btn-play:active{
+  transform:translateY(0);
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.6);
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer{
+  text-align:center;
+  padding:28px 16px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer img{
+  max-width:420px;
+  width:100%;
+  margin-bottom:10px;
 }
 
 /* =====================
    DESKTOP
 ===================== */
 @media (min-width:768px){
+  .game-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
   .game-card img{
     width:64px;
     height:64px;
