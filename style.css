@@ -133,7 +133,7 @@ body{
 
 /* batasi tinggi area hero */
 .hero-inner{
-  max-height:200px;      /* INI BATAS TINGGI (SESUAI GARIS) */
+  max-height:140px;      /* INI BATAS TINGGI (SESUAI GARIS) */
   overflow:hidden;
   display:flex;
   flex-direction:column;
@@ -144,7 +144,7 @@ body{
 /* logo hero */
 .hero img{
   max-width:100%;
-  max-height:180px;      /* logo tidak boleh lewat batas */
+  max-height:140px;      /* logo tidak boleh lewat batas */
   width:auto;
   height:auto;
   object-fit:contain;
