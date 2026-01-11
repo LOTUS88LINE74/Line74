@@ -172,41 +172,6 @@
   <p>© 2026 Portalhoki77. All Rights Reserved.</p>
 </footer>
 
-<!-- PWA INSTALL MODAL -->
-<div id="pwaModal" class="pwa-modal" hidden>
-  <div class="pwa-sheet">
-    <button class="pwa-close" id="pwaClose">✕</button>
-
-    <img src="/site/img/portalhoki77-clean-transparent.webp"
-         alt="Portalhoki77 App"
-         class="pwa-logo">
-
-    <!-- Rating + Badge -->
-    <div class="pwa-rating">
-      ⭐⭐⭐⭐⭐ <span>4.9</span>
-      <span class="pwa-badge">Trusted App</span>
-    </div>
-
-    <h3 data-id="title">Install Portalhoki77</h3>
-    <p class="pwa-desc" data-id="desc">
-      Pasang aplikasi untuk akses lebih cepat & stabil
-    </p>
-
-    <button id="pwaInstallBtn" class="pwa-install-btn" hidden
-            data-id="install">
-      Install Sekarang
-    </button>
-
-    <div id="pwaIosHint" class="pwa-ios-hint" hidden
-         data-id="ios">
-      Tap <b>Share</b> lalu pilih <b>Add to Home Screen</b>
-    </div>
-  </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
   /* ===== Language ===== */
   const lang = navigator.language.startsWith("en") ? "en" : "id";
   const TEXT = {
