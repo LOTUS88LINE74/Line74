@@ -153,6 +153,55 @@ body{
 }
 
 /* ===============================
+   CUSTOMER SERVICE BUTTONS
+================================ */
+.cs-section{
+  width:100%;
+  max-width:520px;
+  margin:40px auto;
+  padding:0 16px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.cs-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#138a08;           /* hijau WhatsApp */
+  color:#fff;
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:1px;
+  text-decoration:none;
+
+  padding:18px 12px;
+  border-radius:22px;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.6);
+  transition:.2s ease;
+}
+
+.cs-btn:hover{
+  background:#17a20a;
+}
+
+.cs-btn::before{
+  content:"💬";
+  margin-right:10px;
+  font-size:20px;
+}
+
+
+/* Judul */
+.cs-title{
+  background:#138a08;
+  font-size:20px;
+}
+
+/* ===============================
    RESPONSIVE
 ================================ */
 @media(max-width:360px){
