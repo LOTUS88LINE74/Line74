@@ -116,6 +116,24 @@ body{
 }
 
 /* ===============================
+   FIX JARAK NAMA vs DOWNLOAD
+================================ */
+
+/* Naikkan nama game */
+.game-info h3,
+.game-name{
+  margin-top: 12px;     /* jarak dari logo */
+  margin-bottom: 10px;  /* JARAK KE TOMBOL (INI KUNCI) */
+  line-height: 1.2;
+}
+
+/* Turunkan tombol sedikit */
+.btn-play,
+.download-btn{
+  margin-top: 0;
+}
+
+/* ===============================
    RESPONSIVE (AMAN)
 ================================ */
 @media(max-width:360px){
